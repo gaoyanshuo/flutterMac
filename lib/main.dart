@@ -7,7 +7,18 @@ void main(List<String> args) {
           title: const Text('Hello, flutter!'),
         ),
         body: const Column(
-          children: [MyApp(), MyButton(), MyText()],
+          children: [
+            MyApp(),
+            MyButton(),
+            MyText(),
+            // MyImages(),
+            SizedBox(
+              // 配置区块的组件
+              height: 20,
+            ),
+            // MyImages(),
+            ClipOvalImages()
+          ],
         )),
   ));
 }
@@ -73,6 +84,53 @@ class MyText extends StatelessWidget {
         overflow: TextOverflow.ellipsis, // ...
         maxLines: 1,
         style: TextStyle(fontSize: 20),
+      ),
+    );
+  }
+}
+
+// 实现一个圆形图片
+class MyImages extends StatelessWidget {
+  const MyImages({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 200,
+        width: 200,
+        margin: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            color: Colors.black, borderRadius: BorderRadius.circular(100)),
+        child: Image.network(
+          'https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+          scale: 2, // scale: 图片缩小一倍
+          fit: BoxFit.contain, // fit属性控制图片的拉伸和挤压 其中cover比较常用
+          // repeat: ImageRepeat.repeat, 平铺，背景可能会用到
+        ),
+      ),
+    );
+  }
+}
+
+// 实现一个圆形图片，使用ClipOval
+class ClipOvalImages extends StatelessWidget {
+  const ClipOvalImages({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      //     child: Image.network(
+      //   'https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+      //   height: 150,
+      //   width: 150,
+      //   fit: BoxFit.cover,
+      // )
+      child: Image.asset(
+        'images/IMG_1976.JPG',
+        fit: BoxFit.cover,
+        height: 150,
+        width: 150,
       ),
     );
   }
