@@ -4,20 +4,24 @@ void main(List<String> args) {
   runApp(MaterialApp(
     home: Scaffold(
         appBar: AppBar(
-          title: const Text('Hello, flutter!'),
+          title: const Text('Hello, flutter!!'),
         ),
         body: const Column(
           children: [
-            MyApp(),
-            MyButton(),
-            MyText(),
+            // MyApp(),
+            // MyButton(),
+            // MyText(),
             // MyImages(),
             SizedBox(
               // 配置区块的组件
               height: 20,
             ),
             // MyImages(),
-            ClipOvalImages()
+            ClipOvalImages(),
+            SizedBox(
+              height: 20,
+            ),
+            MyIcon()
           ],
         )),
   ));
@@ -119,19 +123,49 @@ class ClipOvalImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipOval(
-      //     child: Image.network(
-      //   'https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-      //   height: 150,
-      //   width: 150,
-      //   fit: BoxFit.cover,
-      // )
-      child: Image.asset(
-        'images/IMG_1976.JPG',
-        fit: BoxFit.cover,
-        height: 150,
-        width: 150,
-      ),
+    return Container(
+        alignment: Alignment.center,
+        child: ClipOval(
+          //     child: Image.network(
+          //   'https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+          //   height: 150,
+          //   width: 150,
+          //   fit: BoxFit.cover,
+          // )
+          child: Image.asset(
+            'images/IMG_1976.JPG',
+            fit: BoxFit.cover,
+            height: 150,
+            width: 150,
+            alignment: Alignment.center,
+          ),
+        ));
+  }
+}
+
+class MyIcon extends StatelessWidget {
+  const MyIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Icon(
+          Icons.home,
+          size: 40,
+          color: Colors.black,
+        ),
+        Icon(
+          Icons.settings,
+          size: 40,
+          color: Colors.black,
+        ),
+        Icon(
+          Icons.search,
+          size: 40,
+          color: Colors.black,
+        ),
+      ],
     );
   }
 }
