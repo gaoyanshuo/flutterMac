@@ -6,8 +6,8 @@ void main(List<String> args) {
         appBar: AppBar(
           title: const Text('Hello, flutter!!'),
         ),
-        body: const Column(
-          children: [
+        body: ListView(
+          children: const [
             // MyApp(),
             // MyButton(),
             // MyText(),
@@ -21,7 +21,8 @@ void main(List<String> args) {
             SizedBox(
               height: 20,
             ),
-            MyIcon()
+            MyIcon(),
+            MyListView()
           ],
         )),
   ));
@@ -160,11 +161,47 @@ class MyIcon extends StatelessWidget {
           size: 40,
           color: Colors.black,
         ),
-        Icon(
-          Icons.search,
-          size: 40,
-          color: Colors.black,
+      ],
+    );
+  }
+}
+
+class MyListView extends StatelessWidget {
+  const MyListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const ListTile(
+          leading: Icon(Icons.home),
+          title: Text('Hi'),
         ),
+        const Divider(), // line
+        const ListTile(
+          leading: Icon(Icons.search),
+          title: Text('Hi'),
+        ),
+        const Divider(),
+        ListTile(
+          trailing: Image.network(
+              'https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+          title: const Text("Google"),
+          subtitle: const Text("Google !!!"),
+        ),
+        Image.network(
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOSeOWsB0bfqvjWXBMQR2T5xxD7oPYWaEEIQ&usqp=CAU'),
+        Container(
+          height: 44,
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: const Text(
+            '我是一个标题',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
+        )
       ],
     );
   }
