@@ -42,6 +42,25 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
         ],
       ),
+      // 浮动按钮
+      floatingActionButton: Container(
+        height: 60,
+        width: 60,
+        margin: const EdgeInsets.only(top: 4), // 调整floatingActionButton的位置
+        padding: const EdgeInsets.all(3),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+        child: FloatingActionButton(
+          backgroundColor: _currentIndex == 1 ? Colors.orange : Colors.purple,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            setState(() {
+              _currentIndex = 1;
+            });
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
