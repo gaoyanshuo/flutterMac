@@ -23,6 +23,52 @@ class _TabsState extends State<Tabs> {
       appBar: AppBar(
         title: const Text('BottomNav'),
       ),
+      drawer: const Drawer(
+          child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                // 自定义
+                child: DrawerHeader(
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                'https://i0.hdslb.com/bfs/archive/c8fd97a40bf79f03e7b76cbc87236f612caef7b2.png'),
+                            fit: BoxFit.contain)),
+                    child: Text('')),
+              )
+            ],
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              child: Icon(Icons.people),
+            ),
+            title: Text('Peoples'),
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              child: Icon(Icons.settings),
+            ),
+            title: Text('Setting'),
+          )
+        ],
+      )),
+      endDrawer: const Drawer(
+          child: Column(
+        children: [
+          // 自带样式
+          UserAccountsDrawerHeader(
+              accountName: Text('bilibili'),
+              accountEmail: Text('blibli.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://i0.hdslb.com/bfs/archive/c8fd97a40bf79f03e7b76cbc87236f612caef7b2.png'),
+              )),
+        ],
+      )),
       body: Center(
         child: _pages[_currentIndex],
       ),
